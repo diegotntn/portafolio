@@ -1,0 +1,16 @@
+@import "./base/reset.css";
+@import "./base/tipografia.css";
+@import "./base/base.css";
+
+/* SECCIONES */
+
+@import "./secciones/hero.css";
+@import "./secciones/proyectos.css";
+@import "./secciones/sobre-mi.css";
+@import "./secciones/contacto.css";
+
+/* COMPONENTES */
+
+@import "./componentes/tarjeta-proyecto.css";
+@import "./componentes/detalle-proyecto.css";
+@import "./componentes/tarjeta-hover.css";

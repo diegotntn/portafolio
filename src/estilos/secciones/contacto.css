@@ -1,0 +1,99 @@
+.contacto {
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9e9e9;
+}
+
+.contacto__contenido {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.contacto__titulo {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #000000;
+  text-align: center;
+}
+
+.contacto__iconos {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.contacto__icono-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacto__icono {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+.contacto__icono img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.contacto__icono:hover {
+  transform: scale(1.12);
+}
+
+.contacto__tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 12px);
+  transform: translateY(-50%);
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  animation: aparecerTooltip 0.25s ease;
+  z-index: 10;
+}
+
+.contacto__tooltip::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+}
+
+@keyframes aparecerTooltip {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}

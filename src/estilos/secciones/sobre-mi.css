@@ -1,0 +1,75 @@
+/* ============================= */
+/* SECCION SOBRE MI */
+/* ============================= */
+
+.sobre-mi {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 40px;
+}
+
+.sobre-mi__contenedor {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 700px;
+
+  position: relative;
+}
+
+/* ============================= */
+/* TITULO */
+/* ============================= */
+
+.sobre-mi__titulo {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 2px;
+
+  margin-bottom: 80px;
+}
+
+/* ============================= */
+/* ZONA TARJETAS */
+/* ============================= */
+
+.sobre-mi__zona-tarjetas {
+  width: 100%;
+  height: 500px;
+
+  position: relative;
+}
+
+/* ============================= */
+/* ITEM BASE */
+/* ============================= */
+
+.sobre-mi__item {
+  position: absolute;
+}
+
+/* ============================= */
+/* POSICIONES */
+/* ============================= */
+
+.sobre-mi__item--info {
+  left: 60px;
+  top: 40px;
+}
+
+.sobre-mi__item--habilidades {
+  left: 40%;
+  top: 200px;
+  transform: translateX(-50%);
+}
+
+.sobre-mi__item--formacion {
+  right: 60px;
+  bottom: 40px;
+}

@@ -1,0 +1,41 @@
+.proyecto {
+  margin-bottom: 42px;
+}
+
+.proyecto__nombre {
+  font-size: 22px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.proyecto__descripcion {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  min-width: 430px;
+  max-width: 700px;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proyecto__descripcion:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.proyecto__descripcion:focus {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+.proyecto__descripcion:active {
+  transform: translateY(0);
+}

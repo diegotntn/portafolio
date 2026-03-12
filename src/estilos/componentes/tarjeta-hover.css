@@ -1,0 +1,161 @@
+/* ============================= */
+/* CONTENEDOR GENERAL */
+/* ============================= */
+
+.tarjeta-hover {
+  position: relative;
+  display: inline-block;
+}
+
+/* ============================= */
+/* BOTON NEGRO */
+/* ============================= */
+
+.tarjeta-hover__boton {
+  min-width: 140px;
+  padding: 18px 26px;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.tarjeta-hover__boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ============================= */
+/* CAPA DE LA TARJETA */
+/* ============================= */
+
+.tarjeta-hover__contenido {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 18px);
+  transform: translateY(-50%);
+  z-index: 20;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+}
+
+/* ============================= */
+/* TARJETA VISIBLE EN HOVER */
+/* ============================= */
+
+.tarjeta-hover:hover .tarjeta-hover__contenido {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ============================= */
+/* DISEÑO DE TARJETA */
+/* ============================= */
+
+.tarjeta-hover__tarjeta {
+  width: 300px;
+  padding: 22px 22px 18px;
+  background-color: #ffffff;
+  border: 1px solid #111111;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+}
+
+.tarjeta-hover__titulo {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.2;
+}
+
+.tarjeta-hover__descripcion {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222222;
+}
+
+.tarjeta-hover__lista {
+  padding-left: 0;
+  margin: 0;
+}
+
+.tarjeta-hover__item {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #222222;
+}
+
+.tarjeta-hover__item:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .tarjeta-hover__contenido {
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .tarjeta-hover:hover .tarjeta-hover__contenido {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .tarjeta-hover__tarjeta {
+    width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tarjeta-hover__boton {
+    min-width: 120px;
+    padding: 16px 20px;
+    font-size: 13px;
+  }
+
+  .tarjeta-hover__tarjeta {
+    width: 230px;
+    padding: 18px 18px 16px;
+  }
+
+  .tarjeta-hover__titulo {
+    font-size: 18px;
+  }
+
+  .tarjeta-hover__descripcion,
+  .tarjeta-hover__item {
+    font-size: 13px;
+  }
+}
+
+.tarjeta-hover--derecha .tarjeta-hover__contenido {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 18px);
+  transform: translateY(-50%);
+}
+
+.tarjeta-hover--arriba .tarjeta-hover__contenido {
+  position: absolute;
+  bottom: calc(100% + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,10 @@
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

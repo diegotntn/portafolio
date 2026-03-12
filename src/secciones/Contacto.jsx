@@ -1,0 +1,83 @@
+import React, { useState } from "react";
+import githubIcono from "../assets/github.png";
+import instagramIcono from "../assets/instagram.png";
+import correoIcono from "../assets/correo.png";
+import linkedinIcono from "../assets/linkedin.png";
+
+function Contacto() {
+
+  const [b_mostrarMensajeLinkedin, set_b_mostrarMensajeLinkedin] = useState(false);
+
+  const manejarClickLinkedin = (evento) => {
+    evento.preventDefault();
+
+    set_b_mostrarMensajeLinkedin(true);
+
+    setTimeout(() => {
+      set_b_mostrarMensajeLinkedin(false);
+    }, 1800);
+  };
+
+  return (
+    <section className="contacto" id="contacto">
+      <div className="contacto__contenido">
+        <h2 className="contacto__titulo">CONTACTO</h2>
+
+        <div className="contacto__iconos">
+
+          <a
+            href="https://github.com/diegotntn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contacto__icono"
+            aria-label="GitHub"
+          >
+            <img src={githubIcono} alt="GitHub" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/diegodenuevodenuevo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contacto__icono"
+            aria-label="Instagram"
+          >
+            <img src={instagramIcono} alt="Instagram" />
+          </a>
+
+          <a
+            href="mailto:diego.telnie.2004@gmail.com"
+            className="contacto__icono"
+            aria-label="Correo electrónico"
+          >
+            <img src={correoIcono} alt="Correo electrónico" />
+          </a>
+
+          {/* LinkedIn con tooltip */}
+
+          <div className="contacto__icono-wrapper">
+
+            <a
+              href="#"
+              onClick={manejarClickLinkedin}
+              className="contacto__icono"
+              aria-label="LinkedIn"
+            >
+              <img src={linkedinIcono} alt="LinkedIn" />
+            </a>
+
+            {b_mostrarMensajeLinkedin && (
+              <div className="contacto__tooltip">
+                aún no listo :(
+              </div>
+            )}
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Contacto;
