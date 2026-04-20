@@ -51,7 +51,7 @@ function Hero() {
 
       {/* Ubicación */}
       <div className="hero__ubicacion">
-        Tlaxcala, México
+        Tlaxcala, Méxic
       </div>
 
     </section>
