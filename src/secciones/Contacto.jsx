@@ -50,7 +50,7 @@ function Contacto() {
             </a>
 
             <a
-              href="https://www.instagram.com/diegodenuevodenuevo/"
+              href="https://www.instagram.com/d.i.egotqm/"
               target="_blank"
               rel="noopener noreferrer"
               className="contacto__icono"
