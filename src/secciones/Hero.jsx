@@ -37,10 +37,6 @@ function Hero() {
       {/* Descripción + botones */}
       <div className="hero__bottom">
         <div className="hero__descripcion">
-          <p>
-            Construyo soluciones donde la <strong>inteligencia artificial</strong>{" "}
-            se encuentra con el diseño de software bien pensado.
-          </p>
         </div>
         <nav className="hero__botones">
           <a href="#proyectos" className="hero__boton">Proyectos</a>
