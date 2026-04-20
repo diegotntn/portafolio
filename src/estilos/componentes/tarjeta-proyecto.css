@@ -1,41 +1,98 @@
+/* ============================================================
+   TARJETA PROYECTO — Diseño editorial brutalista | Responsivo
+   ============================================================ */
+
 .proyecto {
-  margin-bottom: 42px;
+  border-top: 1px solid #111;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background-color 0.15s ease;
+}
+
+.proyecto:last-child {
+  border-bottom: 1px solid #111;
+}
+
+/* --- Fila superior: número + nombre --- */
+.proyecto__fila {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.proyecto__numero {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: #aaa;
+  min-width: 28px;
 }
 
 .proyecto__nombre {
-  font-size: 22px;
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
   font-weight: 400;
-  color: #000000;
-  margin-bottom: 12px;
-  line-height: 1.2;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: #111;
+  margin: 0;
 }
 
+/* --- Botón descripción --- */
 .proyecto__descripcion {
   display: inline-block;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #111;
+  color: #f5f3ee;
   border: none;
-  padding: 12px 18px;
-  font-size: 14px;
-  font-weight: 400;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
   text-align: left;
   cursor: pointer;
-  min-width: 430px;
-  max-width: 700px;
-  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  max-width: 560px;
+  width: 100%;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.01em;
 }
 
 .proyecto__descripcion:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  opacity: 0.82;
+  transform: translateX(4px);
 }
 
-.proyecto__descripcion:focus {
-  outline: 2px solid #000000;
+.proyecto__descripcion:focus-visible {
+  outline: 2px solid #111;
   outline-offset: 3px;
 }
 
 .proyecto__descripcion:active {
-  transform: translateY(0);
+  transform: translateX(0);
+}
+
+/* --- Estado seleccionado --- */
+.proyecto--seleccionado .proyecto__nombre {
+  color: #555;
+}
+
+.proyecto--seleccionado .proyecto__descripcion {
+  background-color: #555;
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .proyecto {
+    padding: 18px 0;
+    gap: 10px;
+  }
+
+  .proyecto__descripcion {
+    max-width: 100%;
+    font-size: 12.5px;
+  }
 }

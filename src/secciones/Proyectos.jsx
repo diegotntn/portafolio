@@ -15,9 +15,22 @@ function Proyectos() {
 
   return (
     <section className="proyectos" id="proyectos">
-      <div className="proyectos__contenido">
-        <h2 className="proyectos__titulo">PROYECTOS</h2>
 
+      {/* Barra superior */}
+      <div className="proyectos__header">
+        <span className="proyectos__seccion-label">Proyectos</span>
+        <span className="proyectos__seccion-num">02 / 04</span>
+      </div>
+
+      <div className="proyectos__contenido">
+
+        {/* Título */}
+        <h2 className="proyectos__titulo">
+          Mis<br />
+          <span className="titulo-invertido">proyectos</span>
+        </h2>
+
+        {/* Layout */}
         <div className="proyectos__layout">
           <div className="proyectos__lista">
             {l_proyectos.map((proyecto) => (
@@ -25,16 +38,16 @@ function Proyectos() {
                 key={proyecto.id}
                 proyecto={proyecto}
                 seleccionarProyecto={seleccionarProyecto}
+                estaSeleccionado={proyectoSeleccionado?.id === proyecto.id}
               />
             ))}
           </div>
 
           <div className="proyectos__panel">
-            {proyectoSeleccionado && (
-              <DetalleProyecto proyecto={proyectoSeleccionado} />
-            )}
+            <DetalleProyecto proyecto={proyectoSeleccionado} />
           </div>
         </div>
+
       </div>
     </section>
   );

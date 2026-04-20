@@ -1,53 +1,131 @@
+/* ============================================================
+   PROYECTOS — Diseño editorial brutalista | Responsivo
+   ============================================================ */
+
 .proyectos {
   min-height: 100vh;
-  padding: 80px 70px;
+  background-color: #f5f3ee;
+  border-top: 2px solid #111;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
+/* --- Barra superior --- */
+.proyectos__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  border-bottom: 1px solid #111;
+}
+
+.proyectos__seccion-label {
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.proyectos__seccion-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #aaa;
+}
+
+.proyectos__seccion-num {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: #aaa;
+}
+
+/* --- Contenido --- */
 .proyectos__contenido {
+  flex: 1;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 40px 64px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
+/* --- Título --- */
 .proyectos__titulo {
-  text-align: center;
-  font-size: 36px;
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  font-size: clamp(64px, 12vw, 140px);
   font-weight: 400;
-  letter-spacing: 2px;
-  margin-bottom: 60px;
+  line-height: 0.88;
+  letter-spacing: -1px;
+  color: #111;
+  margin: 0;
 }
 
-.proyecto {
-  margin-bottom: 40px;
+.proyectos__titulo .titulo-invertido {
+  display: inline-block;
+  background: #111;
+  color: #f5f3ee;
+  padding: 4px 20px 10px 20px;
+  margin-left: -4px;
 }
 
-.proyecto__nombre {
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-.proyecto__descripcion {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 14px;
-  font-size: 14px;
-  width: fit-content;
-  min-width: 420px;
-}
-
-.proyectos__layout{
+/* --- Layout lista + panel --- */
+.proyectos__layout {
   display: grid;
-  grid-template-columns: 1fr 450px;
-  gap: 60px;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
   align-items: start;
 }
 
-.proyectos__lista{
-  width: 100%;
+.proyectos__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.proyectos__panel{
-  min-height: 300px;
+.proyectos__panel {
+  position: sticky;
+  top: 32px;
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+
+@media (max-width: 960px) {
+  .proyectos__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .proyectos__panel {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .proyectos__header {
+    padding: 12px 20px;
+  }
+
+  .proyectos__contenido {
+    padding: 36px 20px 48px 20px;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .proyectos__header {
+    padding: 10px 16px;
+  }
+
+  .proyectos__contenido {
+    padding: 28px 16px 40px 16px;
+    gap: 28px;
+  }
 }

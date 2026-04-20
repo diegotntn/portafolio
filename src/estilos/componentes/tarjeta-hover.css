@@ -1,161 +1,174 @@
-/* ============================= */
-/* CONTENEDOR GENERAL */
-/* ============================= */
+/* ============================================================
+   TARJETA HOVER — Diseño editorial brutalista | Responsivo
+   ============================================================ */
 
 .tarjeta-hover {
   position: relative;
   display: inline-block;
 }
 
-/* ============================= */
-/* BOTON NEGRO */
-/* ============================= */
-
+/* --- Botón --- */
 .tarjeta-hover__boton {
   min-width: 140px;
-  padding: 18px 26px;
-  border: none;
-  background-color: #000000;
-  color: #ffffff;
-  font-size: 14px;
+  padding: 14px 22px;
+  border: 1.5px solid #111;
+  background-color: transparent;
+  color: #111;
+  font-family: inherit;
+  font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.5px;
-  text-transform: lowercase;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   cursor: pointer;
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background-color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .tarjeta-hover__boton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  background-color: #111;
+  color: #f5f3ee;
 }
 
-/* ============================= */
-/* CAPA DE LA TARJETA */
-/* ============================= */
-
+/* --- Contenido flotante --- */
 .tarjeta-hover__contenido {
   position: absolute;
   top: 50%;
-  left: calc(100% + 18px);
+  left: calc(100% + 16px);
   transform: translateY(-50%);
   z-index: 20;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
-  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
 }
-
-/* ============================= */
-/* TARJETA VISIBLE EN HOVER */
-/* ============================= */
 
 .tarjeta-hover:hover .tarjeta-hover__contenido {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(-50%) translateX(0);
 }
 
-/* ============================= */
-/* DISEÑO DE TARJETA */
-/* ============================= */
-
+/* --- Tarjeta flotante --- */
 .tarjeta-hover__tarjeta {
-  width: 300px;
-  padding: 22px 22px 18px;
-  background-color: #ffffff;
-  border: 1px solid #111111;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  width: 280px;
+  padding: 24px;
+  background-color: #f5f3ee;
+  border: 1.5px solid #111;
 }
 
 .tarjeta-hover__titulo {
-  margin: 0 0 12px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #111111;
-  line-height: 1.2;
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  color: #111;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.5px;
 }
 
 .tarjeta-hover__descripcion {
-  margin: 0 0 14px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #222222;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #444;
+  margin: 0 0 14px 0;
 }
 
 .tarjeta-hover__lista {
-  padding-left: 0;
+  list-style: none;
+  padding: 0;
   margin: 0;
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
 }
 
 .tarjeta-hover__item {
-  margin-bottom: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #222222;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #333;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .tarjeta-hover__item:last-child {
-  margin-bottom: 0;
+  border-bottom: none;
 }
 
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
+/* --- Formación académica --- */
+.tarjeta-hover__formacion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tarjeta-hover__formacion-carrera {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #111;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.tarjeta-hover__formacion-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.tarjeta-hover__formacion-linea {
+  font-size: 12px;
+  font-weight: 300;
+  color: #666;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* --- Variantes de dirección --- */
+.tarjeta-hover--derecha .tarjeta-hover__contenido {
+  top: 50%;
+  left: calc(100% + 16px);
+  transform: translateY(-50%);
+}
+
+.tarjeta-hover--arriba .tarjeta-hover__contenido {
+  bottom: calc(100% + 16px);
+  left: 50%;
+  top: auto;
+  transform: translateX(-50%);
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
 
 @media (max-width: 900px) {
-  .tarjeta-hover__contenido {
-    top: calc(100% + 14px);
+  .tarjeta-hover--derecha .tarjeta-hover__contenido,
+  .tarjeta-hover--arriba .tarjeta-hover__contenido {
+    top: calc(100% + 12px);
     left: 50%;
+    bottom: auto;
     transform: translateX(-50%);
   }
 
-  .tarjeta-hover:hover .tarjeta-hover__contenido {
-    transform: translateX(-50%) translateY(0);
-  }
-
   .tarjeta-hover__tarjeta {
-    width: 260px;
+    width: 250px;
   }
 }
 
 @media (max-width: 600px) {
   .tarjeta-hover__boton {
-    min-width: 120px;
-    padding: 16px 20px;
-    font-size: 13px;
+    min-width: 110px;
+    padding: 12px 16px;
+    font-size: 10.5px;
   }
 
   .tarjeta-hover__tarjeta {
-    width: 230px;
-    padding: 18px 18px 16px;
+    width: 220px;
+    padding: 18px;
   }
 
   .tarjeta-hover__titulo {
-    font-size: 18px;
+    font-size: 24px;
   }
-
-  .tarjeta-hover__descripcion,
-  .tarjeta-hover__item {
-    font-size: 13px;
-  }
-}
-
-.tarjeta-hover--derecha .tarjeta-hover__contenido {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 18px);
-  transform: translateY(-50%);
-}
-
-.tarjeta-hover--arriba .tarjeta-hover__contenido {
-  position: absolute;
-  bottom: calc(100% + 18px);
-  left: 50%;
-  transform: translateX(-50%);
 }

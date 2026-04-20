@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-
+import React from "react";
 import "../../estilos/componentes/detalle-proyecto.css";
 
 function DetalleProyecto({ proyecto }) {
-
   if (!proyecto) {
-    return null;
+    return (
+      <div className="detalle-proyecto detalle-proyecto--vacio">
+        <span className="detalle-proyecto__placeholder">
+          Selecciona un proyecto
+        </span>
+      </div>
+    );
   }
 
   return (
@@ -25,7 +29,7 @@ function DetalleProyecto({ proyecto }) {
         {proyecto.descripcion}
       </p>
 
-      {/* IMÁGENES DEL PROYECTO */}
+      {/* Imágenes */}
       {proyecto.imagenes && proyecto.imagenes.length > 0 && (
         <div className="detalle-proyecto__imagenes">
           {proyecto.imagenes.map((imagen, index) => (
@@ -39,36 +43,24 @@ function DetalleProyecto({ proyecto }) {
         </div>
       )}
 
-      {/* TECNOLOGÍAS */}
+      {/* Tecnologías */}
       {proyecto.tecnologias && proyecto.tecnologias.length > 0 && (
         <div className="detalle-proyecto__bloque">
-
-          <h4 className="detalle-proyecto__subtitulo">
-            Tecnologías
-          </h4>
-
+          <h4 className="detalle-proyecto__subtitulo">Tecnologías</h4>
           <div className="detalle-proyecto__etiquetas">
             {proyecto.tecnologias.map((tecnologia, index) => (
-              <span
-                key={index}
-                className="detalle-proyecto__etiqueta"
-              >
+              <span key={index} className="detalle-proyecto__etiqueta">
                 {tecnologia}
               </span>
             ))}
           </div>
-
         </div>
       )}
 
-      {/* LINKS */}
+      {/* Links */}
       {proyecto.links && proyecto.links.length > 0 && (
         <div className="detalle-proyecto__bloque">
-
-          <h4 className="detalle-proyecto__subtitulo">
-            Enlaces
-          </h4>
-
+          <h4 className="detalle-proyecto__subtitulo">Enlaces</h4>
           <div className="detalle-proyecto__links">
             {proyecto.links.map((link, index) => (
               <a
@@ -82,7 +74,6 @@ function DetalleProyecto({ proyecto }) {
               </a>
             ))}
           </div>
-
         </div>
       )}
 
