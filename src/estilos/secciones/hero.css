@@ -91,7 +91,7 @@
   font-weight: 400;
   line-height: 0.88;
   letter-spacing: -1px;
-  color: #111;
+  color: #f6efef;
   margin: 0;
 }
 
@@ -149,14 +149,14 @@
   font-weight: 300;
   font-style: italic;
   line-height: 1.6;
-  color: #444;
+  color: #e5e2e2;
   margin: 0;
 }
 
 .hero__descripcion p strong {
   font-style: normal;
   font-weight: 500;
-  color: #111;
+  color: #ede8e8;
 }
 
 /* --- Botones --- */
