@@ -4,7 +4,7 @@ import "../estilos/secciones/experiencia.css";
 const l_experiencia = [
   {
     id: "plusmedic",
-    empresa: "PlusMedic",
+    empresa: "PlusMedic y Farmacias YaVaz",
     cargo: "Auxiliar de Sistemas",
     fechaInicio: "Sep. 2025",
     fechaFin: null, // null = actualidad

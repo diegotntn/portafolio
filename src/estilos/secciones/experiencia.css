@@ -1,111 +1,142 @@
 /* ============================================================
-   EXPERIENCIA — Brutalista caótico | Timeline
+   EXPERIENCIA — Estilo editorial brutalista limpio
    ============================================================ */
 
 .experiencia {
-  background: #ece9e1;
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 3px solid #0d0d0d;
-  font-family: 'Space Mono', monospace;
-}
-
-.experiencia::before {
-  content: '';
-  position: absolute;
-  top: 8px; left: 8px;
-  right: 28px; bottom: 28px;
-  border: 1px solid #0d0d0d;
-  opacity: 0.13;
-  pointer-events: none;
-}
-
-/* número fantasma */
-.experiencia__num-fantasma {
-  position: absolute;
-  top: -40px;
-  left: -20px;
-  font-family: 'Russo One', sans-serif;
-  font-size: 420px;
-  color: #0d0d0d;
-  opacity: 0.032;
-  line-height: 1;
-  user-select: none;
-}
-
-/* bloque negro — esquina superior derecha */
-.experiencia__bloque-negro {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: clamp(110px, 15vw, 158px);
-  background: #0d0d0d;
-  z-index: 4;
+  background-color: #f5f3ee;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 12px 14px;
+  justify-content: flex-start;
+  border-bottom: 2px solid #111;
+  position: relative;
+  overflow: hidden;
 }
 
-.experiencia__bloque-negro span {
-  font-family: 'Space Mono', monospace;
-  font-size: 7px;
-  letter-spacing: 0.16em;
+/* ============================================================
+   ENCABEZADO
+   ============================================================ */
+
+.experiencia__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  border-bottom: 1px solid #111;
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #ece9e1;
-  line-height: 2.2;
-  display: block;
+  color: #666;
 }
 
-/* título — sangra por izquierda */
+.experiencia__topbar span {
+  color: #111;
+  font-weight: 500;
+}
+
+.experiencia__topbar-centro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.experiencia__topbar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #111;
+  animation: pulsoExperiencia 2s ease-in-out infinite;
+}
+
+@keyframes pulsoExperiencia {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* ============================================================
+   CONTENIDO PRINCIPAL
+   ============================================================ */
+
+.experiencia__contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 40px 56px 40px;
+}
+
+.experiencia__label {
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.experiencia__label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #aaa;
+}
+
+/* ============================================================
+   TÍTULO
+   ============================================================ */
+
 .experiencia__titulo-wrap {
-  position: absolute;
-  top: -20px;
-  left: 12px;
-  z-index: 2;
+  margin-bottom: 28px;
 }
 
 .experiencia__titulo {
-  font-family: 'Russo One', sans-serif;
-  font-size: clamp(64px, 13vw, 148px);
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  font-size: clamp(56px, 11vw, 132px);
   font-weight: 400;
-  line-height: 0.82;
-  color: #0d0d0d;
-  letter-spacing: -5px;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  color: #111;
+  margin: 0;
   text-transform: uppercase;
-  white-space: nowrap;
 }
 
-/* fragmento lateral */
-.experiencia__fragmento {
-  position: absolute;
-  font-family: 'Space Mono', monospace;
-  font-size: 7.5px;
-  letter-spacing: 0.3em;
+.experiencia__titulo .titulo-invertido {
+  display: inline-block;
+  background: #111;
+  color: #f5f3ee;
+  padding: 4px 18px 10px 18px;
+  margin-left: -4px;
+}
+
+/* ============================================================
+   TICKER / FRANJA SUPERIOR
+   ============================================================ */
+
+.experiencia__ticker {
+  display: flex;
+  gap: 40px;
+  overflow: hidden;
+  padding: 12px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 40px;
+}
+
+.experiencia__ticker-item {
+  white-space: nowrap;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #0d0d0d;
-  opacity: 0.22;
-  white-space: nowrap;
-  right: 16px;
-  top: 38%;
-  transform: rotate(90deg);
-  transform-origin: right top;
+  color: #999;
+  flex-shrink: 0;
 }
 
-/* contenido principal */
-.experiencia__contenido {
-  position: relative;
-  z-index: 2;
-  padding: clamp(180px, 25vw, 250px) 22px 80px 22px;
-}
-
-.experiencia__linea-sep {
-  width: 100%;
-  height: 1px;
-  background: #0d0d0d;
-  opacity: 0.14;
-  margin-bottom: 48px;
+.experiencia__ticker-item span {
+  color: #111;
+  font-weight: 500;
+  margin-left: 6px;
 }
 
 /* ============================================================
@@ -114,187 +145,223 @@
 
 .timeline {
   position: relative;
-  padding-left: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-/* línea vertical central del timeline */
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 10px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #0d0d0d;
-  opacity: 0.25;
-}
-
-/* cada entrada */
 .timeline__entrada {
   position: relative;
-  margin-bottom: 56px;
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid #d7d2ca;
 }
 
-.timeline__entrada:last-child {
-  margin-bottom: 0;
+.timeline__entrada:first-child {
+  border-top: 1px solid #d7d2ca;
 }
 
-/* punto en la línea */
-.timeline__punto {
-  position: absolute;
-  left: -42px;
-  top: 6px;
-  width: 12px;
-  height: 12px;
-  border: 2px solid #0d0d0d;
-  background: #ece9e1;
-  z-index: 2;
+/* columna izquierda */
+.timeline__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
 }
 
-/* punto activo (trabajo actual) — relleno */
-.timeline__punto--activo {
-  background: #0d0d0d;
-}
-
-/* línea pulsante que sale del punto activo hacia arriba — "en curso" */
-.timeline__punto--activo::before {
-  content: '';
-  position: absolute;
-  top: -28px;
-  left: 3px;
-  width: 2px;
-  height: 24px;
-  background: #0d0d0d;
-  opacity: 0.4;
-  animation: pulsoLinea 2s ease-in-out infinite;
-}
-
-@keyframes pulsoLinea {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.1; }
-}
-
-/* fecha */
 .timeline__fecha {
-  font-family: 'Space Mono', monospace;
-  font-size: 7.5px;
-  letter-spacing: 0.22em;
+  font-size: 10px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #0d0d0d;
-  opacity: 0.45;
-  margin-bottom: 10px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline__fecha::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: #bbb;
+}
+
+.timeline__fecha-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border: 1px solid #111;
+  background: #111;
+  color: #f5f3ee;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.timeline__punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid #111;
+}
+
+.timeline__punto--activo {
+  background: #111;
+}
+
+/* columna derecha */
+.timeline__cuerpo {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline__empresa {
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.5px;
+  color: #111;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.timeline__cargo {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.timeline__fecha-badge {
+.timeline__cargo::before {
+  content: '';
   display: inline-block;
-  background: #0d0d0d;
-  color: #ece9e1;
-  font-size: 6.5px;
-  letter-spacing: 0.18em;
-  padding: 2px 7px;
-  text-transform: uppercase;
+  width: 20px;
+  height: 1px;
+  background: #bbb;
 }
 
-/* empresa + cargo */
-.timeline__empresa {
-  font-family: 'Russo One', sans-serif;
-  font-size: clamp(28px, 5vw, 52px);
-  font-weight: 400;
-  line-height: 0.9;
-  color: #0d0d0d;
-  letter-spacing: -2px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
+/* ============================================================
+   TAREAS
+   ============================================================ */
 
-.timeline__cargo {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #0d0d0d;
-  opacity: 0.5;
-  margin-bottom: 24px;
-  border-left: 3px solid #0d0d0d;
-  padding-left: 10px;
-}
-
-/* lista de tareas */
 .timeline__tareas {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  max-width: 680px;
+  max-width: 760px;
 }
 
 .timeline__tarea {
-  display: flex;
+  display: grid;
+  grid-template-columns: 34px 1fr;
   gap: 14px;
-  align-items: flex-start;
-  padding: 12px 0;
-  border-top: 1px solid #0d0d0d;
-  opacity: 0.75;
-  transition: opacity 0.15s;
+  align-items: start;
+  padding: 14px 0;
+  border-top: 1px solid #ddd7cf;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
 }
 
 .timeline__tarea:last-child {
-  border-bottom: 1px solid #0d0d0d;
+  border-bottom: 1px solid #ddd7cf;
 }
 
 .timeline__tarea:hover {
-  opacity: 1;
+  background-color: rgba(17, 17, 17, 0.025);
+  padding-left: 6px;
 }
 
 .timeline__tarea-num {
-  font-family: 'Space Mono', monospace;
-  font-size: 7px;
-  letter-spacing: 0.16em;
-  color: #0d0d0d;
-  opacity: 0.3;
-  min-width: 22px;
-  padding-top: 1px;
-  flex-shrink: 0;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #999;
+  padding-top: 2px;
 }
 
 .timeline__tarea-texto {
-  font-family: 'Space Mono', monospace;
-  font-size: 8.5px;
-  letter-spacing: 0.05em;
-  line-height: 1.85;
-  color: #1a1a1a;
-  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #444;
 }
 
-/* stack de tecnologías */
+.timeline__tarea-texto strong {
+  color: #111;
+  font-weight: 500;
+}
+
+/* ============================================================
+   STACK
+   ============================================================ */
+
 .timeline__stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 22px;
 }
 
 .timeline__tag {
-  border: 1px solid #0d0d0d;
-  padding: 4px 9px;
-  font-family: 'Space Mono', monospace;
-  font-size: 7.5px;
+  border: 1px solid #111;
+  padding: 7px 12px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #0d0d0d;
-  opacity: 0.55;
-  transition: opacity 0.15s, background 0.15s;
+  color: #111;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .timeline__tag:hover {
-  opacity: 1;
-  background: #0d0d0d;
-  color: #ece9e1;
+  background-color: #111;
+  color: #f5f3ee;
+}
+
+/* ============================================================
+   PIE INFERIOR OPCIONAL
+   ============================================================ */
+
+.experiencia__footer {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
+  padding: 12px 40px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.experiencia__footer::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bbb;
+}
+
+/* ============================================================
+   ELEMENTOS VIEJOS QUE YA NO QUEREMOS VISUALMENTE
+   ============================================================ */
+
+.experiencia__num-fantasma,
+.experiencia__bloque-negro,
+.experiencia__fragmento,
+.experiencia__linea-sep {
+  display: none;
 }
 
 /* ============================================================
@@ -302,19 +369,84 @@
    ============================================================ */
 
 @media (max-width: 768px) {
-  .experiencia__bloque-negro { width: 108px; padding: 10px; }
-  .experiencia__titulo { letter-spacing: -3px; }
-  .experiencia__contenido { padding-top: clamp(150px, 22vw, 200px); }
-  .experiencia__fragmento { display: none; }
-  .timeline { padding-left: 36px; }
+  .experiencia__topbar {
+    padding: 12px 20px;
+    font-size: 9.5px;
+  }
+
+  .experiencia__topbar-derecha {
+    display: none;
+  }
+
+  .experiencia__contenido {
+    padding: 32px 20px 40px 20px;
+  }
+
+  .timeline__entrada {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .timeline__meta {
+    gap: 10px;
+  }
+
+  .timeline__empresa {
+    font-size: clamp(28px, 8vw, 44px);
+  }
+
+  .experiencia__footer {
+    padding: 12px 20px;
+  }
 }
 
 @media (max-width: 480px) {
-  .experiencia__titulo { letter-spacing: -2px; }
-  .experiencia__contenido { padding: clamp(130px, 20vw, 175px) 16px 60px 16px; }
-  .timeline { padding-left: 28px; }
-  .timeline::before { left: 8px; }
-  .timeline__punto { left: -34px; width: 10px; height: 10px; }
-  .timeline__tarea-texto { font-size: 8px; }
-  .timeline__empresa { letter-spacing: -1px; }
+  .experiencia__topbar {
+    padding: 10px 16px;
+  }
+
+  .experiencia__topbar-centro {
+    display: none;
+  }
+
+  .experiencia__contenido {
+    padding: 24px 16px 32px 16px;
+  }
+
+  .experiencia__titulo {
+    font-size: clamp(46px, 16vw, 82px);
+  }
+
+  .experiencia__titulo .titulo-invertido {
+    padding: 2px 12px 8px 12px;
+  }
+
+  .experiencia__ticker {
+    display: none;
+  }
+
+  .timeline__entrada {
+    padding: 20px 0;
+  }
+
+  .timeline__tarea {
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+  }
+
+  .timeline__tarea-texto {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .timeline__tag {
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+
+  .experiencia__footer {
+    padding: 12px 16px;
+    font-size: 9.5px;
+  }
 }
