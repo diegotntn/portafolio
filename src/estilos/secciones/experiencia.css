@@ -1,0 +1,320 @@
+/* ============================================================
+   EXPERIENCIA — Brutalista caótico | Timeline
+   ============================================================ */
+
+.experiencia {
+  background: #ece9e1;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #0d0d0d;
+  font-family: 'Space Mono', monospace;
+}
+
+.experiencia::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px;
+  right: 28px; bottom: 28px;
+  border: 1px solid #0d0d0d;
+  opacity: 0.13;
+  pointer-events: none;
+}
+
+/* número fantasma */
+.experiencia__num-fantasma {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  font-family: 'Russo One', sans-serif;
+  font-size: 420px;
+  color: #0d0d0d;
+  opacity: 0.032;
+  line-height: 1;
+  user-select: none;
+}
+
+/* bloque negro — esquina superior derecha */
+.experiencia__bloque-negro {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(110px, 15vw, 158px);
+  background: #0d0d0d;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px 14px;
+}
+
+.experiencia__bloque-negro span {
+  font-family: 'Space Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ece9e1;
+  line-height: 2.2;
+  display: block;
+}
+
+/* título — sangra por izquierda */
+.experiencia__titulo-wrap {
+  position: absolute;
+  top: -20px;
+  left: 12px;
+  z-index: 2;
+}
+
+.experiencia__titulo {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(64px, 13vw, 148px);
+  font-weight: 400;
+  line-height: 0.82;
+  color: #0d0d0d;
+  letter-spacing: -5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* fragmento lateral */
+.experiencia__fragmento {
+  position: absolute;
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  opacity: 0.22;
+  white-space: nowrap;
+  right: 16px;
+  top: 38%;
+  transform: rotate(90deg);
+  transform-origin: right top;
+}
+
+/* contenido principal */
+.experiencia__contenido {
+  position: relative;
+  z-index: 2;
+  padding: clamp(180px, 25vw, 250px) 22px 80px 22px;
+}
+
+.experiencia__linea-sep {
+  width: 100%;
+  height: 1px;
+  background: #0d0d0d;
+  opacity: 0.14;
+  margin-bottom: 48px;
+}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+
+.timeline {
+  position: relative;
+  padding-left: 48px;
+}
+
+/* línea vertical central del timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #0d0d0d;
+  opacity: 0.25;
+}
+
+/* cada entrada */
+.timeline__entrada {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.timeline__entrada:last-child {
+  margin-bottom: 0;
+}
+
+/* punto en la línea */
+.timeline__punto {
+  position: absolute;
+  left: -42px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #0d0d0d;
+  background: #ece9e1;
+  z-index: 2;
+}
+
+/* punto activo (trabajo actual) — relleno */
+.timeline__punto--activo {
+  background: #0d0d0d;
+}
+
+/* línea pulsante que sale del punto activo hacia arriba — "en curso" */
+.timeline__punto--activo::before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 3px;
+  width: 2px;
+  height: 24px;
+  background: #0d0d0d;
+  opacity: 0.4;
+  animation: pulsoLinea 2s ease-in-out infinite;
+}
+
+@keyframes pulsoLinea {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.1; }
+}
+
+/* fecha */
+.timeline__fecha {
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  opacity: 0.45;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline__fecha-badge {
+  display: inline-block;
+  background: #0d0d0d;
+  color: #ece9e1;
+  font-size: 6.5px;
+  letter-spacing: 0.18em;
+  padding: 2px 7px;
+  text-transform: uppercase;
+}
+
+/* empresa + cargo */
+.timeline__empresa {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 0.9;
+  color: #0d0d0d;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.timeline__cargo {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  opacity: 0.5;
+  margin-bottom: 24px;
+  border-left: 3px solid #0d0d0d;
+  padding-left: 10px;
+}
+
+/* lista de tareas */
+.timeline__tareas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 680px;
+}
+
+.timeline__tarea {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-top: 1px solid #0d0d0d;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+
+.timeline__tarea:last-child {
+  border-bottom: 1px solid #0d0d0d;
+}
+
+.timeline__tarea:hover {
+  opacity: 1;
+}
+
+.timeline__tarea-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.16em;
+  color: #0d0d0d;
+  opacity: 0.3;
+  min-width: 22px;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+
+.timeline__tarea-texto {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.05em;
+  line-height: 1.85;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+/* stack de tecnologías */
+.timeline__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.timeline__tag {
+  border: 1px solid #0d0d0d;
+  padding: 4px 9px;
+  font-family: 'Space Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  opacity: 0.55;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.timeline__tag:hover {
+  opacity: 1;
+  background: #0d0d0d;
+  color: #ece9e1;
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .experiencia__bloque-negro { width: 108px; padding: 10px; }
+  .experiencia__titulo { letter-spacing: -3px; }
+  .experiencia__contenido { padding-top: clamp(150px, 22vw, 200px); }
+  .experiencia__fragmento { display: none; }
+  .timeline { padding-left: 36px; }
+}
+
+@media (max-width: 480px) {
+  .experiencia__titulo { letter-spacing: -2px; }
+  .experiencia__contenido { padding: clamp(130px, 20vw, 175px) 16px 60px 16px; }
+  .timeline { padding-left: 28px; }
+  .timeline::before { left: 8px; }
+  .timeline__punto { left: -34px; width: 10px; height: 10px; }
+  .timeline__tarea-texto { font-size: 8px; }
+  .timeline__empresa { letter-spacing: -1px; }
+}

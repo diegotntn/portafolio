@@ -1,15 +1,30 @@
+/* ============================================================
+   FUENTES
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
 @import "./base/reset.css";
 @import "./base/tipografia.css";
 @import "./base/base.css";
 
-/* SECCIONES */
+/* ============================================================
+   SECCIONES
+   ============================================================ */
 
 @import "./secciones/hero.css";
 @import "./secciones/proyectos.css";
+@import "./secciones/experiencia.css";
 @import "./secciones/sobre-mi.css";
 @import "./secciones/contacto.css";
 
-/* COMPONENTES */
+/* ============================================================
+   COMPONENTES
+   ============================================================ */
 
 @import "./componentes/tarjeta-proyecto.css";
 @import "./componentes/detalle-proyecto.css";
