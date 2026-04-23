@@ -1,174 +1,66 @@
 /* ============================================================
-   EXPERIENCIA — mismo lenguaje visual del hero
+   EXPERIENCIA — Timeline editorial brutalista
    ============================================================ */
 
 .experiencia {
   background-color: #f5f3ee;
   border-bottom: 2px solid #111;
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 /* ============================================================
-   BARRA SUPERIOR
-   ============================================================ */
-
-.experiencia__topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 40px;
-  border-bottom: 1px solid #111;
-  font-size: 10.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #777;
-}
-
-.experiencia__topbar span {
-  color: #111;
-  font-weight: 500;
-}
-
-.experiencia__topbar-centro {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.experiencia__topbar-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #111;
-}
-
-.experiencia__topbar-badge {
-  background: #111;
-  color: #f5f3ee;
-  padding: 5px 10px;
-  line-height: 1;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-/* ============================================================
-   CONTENIDO GENERAL
+   CONTENEDOR
    ============================================================ */
 
 .experiencia__contenido {
-  padding: 42px 40px 48px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  padding: 48px 40px 56px 40px;
 }
 
 /* ============================================================
-   CABECERA
+   ENCABEZADO
    ============================================================ */
 
-.experiencia__encabezado {
-  display: grid;
-  grid-template-columns: minmax(320px, 1.2fr) minmax(220px, 0.8fr);
-  gap: 32px;
-  align-items: start;
+.experiencia__header {
+  margin-bottom: 40px;
 }
 
 .experiencia__titulo {
   font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
-  font-size: clamp(54px, 8vw, 110px);
-  line-height: 0.9;
+  font-size: clamp(72px, 12vw, 170px);
   font-weight: 400;
-  letter-spacing: -1px;
+  line-height: 0.9;
+  letter-spacing: -2px;
   text-transform: uppercase;
   color: #111;
-  margin: 0;
+  margin: 0 0 12px 0;
 }
 
-.experiencia__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-top: 6px;
-}
-
-.experiencia__cargo {
-  font-size: 10.5px;
+.experiencia__subtitulo {
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #888;
+  color: #8a8a8a;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.experiencia__cargo::before {
+.experiencia__subtitulo::before {
   content: "";
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: #aaa;
-}
-
-.experiencia__resumen {
-  max-width: 420px;
-  font-size: 14px;
-  line-height: 1.65;
-  color: #4b4b4b;
-  margin: 0;
-}
-
-.experiencia__resumen strong {
-  color: #111;
-  font-weight: 500;
+  background: #b5b5b5;
 }
 
 /* ============================================================
-   DIVISOR
+   TIMELINE
    ============================================================ */
 
-.experiencia__ticker {
-  display: flex;
-  gap: 40px;
-  overflow: hidden;
-  padding: 12px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-.experiencia__ticker-item {
-  white-space: nowrap;
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #999;
-  flex-shrink: 0;
-}
-
-.experiencia__ticker-item span {
-  color: #111;
-  font-weight: 500;
-  margin-left: 6px;
-}
-
-/* ============================================================
-   CUERPO PRINCIPAL
-   ============================================================ */
-
-.experiencia__grid {
-  display: grid;
-  grid-template-columns: minmax(360px, 1.5fr) minmax(260px, 1fr);
-  gap: 30px;
-  align-items: start;
-}
-
-/* ============================================================
-   LISTA DE EXPERIENCIAS / LOGROS
-   ============================================================ */
-
-.experiencia__lista {
+.experiencia__timeline {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -177,64 +69,180 @@
 
 .experiencia__item {
   display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 14px;
-  padding: 20px 0;
+  grid-template-columns: 180px 24px minmax(0, 1fr) 260px;
+  gap: 24px;
+  padding: 28px 0;
   border-bottom: 1px solid #d8d2c9;
+  align-items: start;
+  position: relative;
 }
 
-.experiencia__numero {
-  font-size: 11px;
-  letter-spacing: 0.16em;
+/* ============================================================
+   COLUMNA FECHA
+   ============================================================ */
+
+.experiencia__fecha {
+  padding-top: 4px;
+}
+
+.experiencia__periodo {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #999;
-  padding-top: 2px;
+  color: #8f8f8f;
+  margin-bottom: 10px;
 }
 
-.experiencia__texto {
+.experiencia__estado {
+  display: inline-block;
+  background: #111;
+  color: #f5f3ee;
+  padding: 6px 10px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ============================================================
+   COLUMNA LINEA
+   ============================================================ */
+
+.experiencia__linea {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.experiencia__linea::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  bottom: -28px;
+  width: 1px;
+  background: #bdb6ac;
+}
+
+.experiencia__punto {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #111;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   COLUMNA PRINCIPAL
+   ============================================================ */
+
+.experiencia__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experiencia__empresa {
+  font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.6px;
+  text-transform: uppercase;
+  color: #111;
+  margin: 0;
+}
+
+.experiencia__puesto {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8c8c8c;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.experiencia__puesto::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: #b8b8b8;
+}
+
+.experiencia__descripcion {
+  margin: 4px 0 0 0;
+  max-width: 700px;
+}
+
+.experiencia__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experiencia__lista li {
+  position: relative;
+  padding: 12px 0 12px 28px;
   font-size: 14px;
   line-height: 1.7;
   color: #444;
-  max-width: 520px;
+  border-top: 1px solid #e1dbd2;
 }
 
-.experiencia__texto strong {
+.experiencia__lista li:first-child {
+  border-top: none;
+}
+
+.experiencia__lista li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #111;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.experiencia__lista li strong {
   color: #111;
   font-weight: 500;
 }
 
 /* ============================================================
-   STACK / TECNOLOGÍAS
+   STACK
    ============================================================ */
-
-.experiencia__stack-panel {
-  border: 1px solid #111;
-  padding: 18px;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.experiencia__stack-titulo {
-  font-size: 10.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #777;
-  margin: 0;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #d8d2c9;
-}
 
 .experiencia__stack {
   display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+
+.experiencia__stack-titulo {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d8d2c9;
+}
+
+.experiencia__tags {
+  display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .experiencia__tag {
   border: 1px solid #111;
-  padding: 10px 14px;
+  padding: 8px 12px;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -249,119 +257,98 @@
 }
 
 /* ============================================================
-   FOOTER
+   EFECTOS SUTILES
    ============================================================ */
 
-.experiencia__footer {
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #999;
-  padding: 12px 40px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.experiencia__item:hover .experiencia__empresa {
+  opacity: 0.88;
 }
 
-.experiencia__footer::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #bbb;
+.experiencia__item:hover .experiencia__punto {
+  transform: scale(1.08);
+  transition: transform 0.2s ease;
 }
 
 /* ============================================================
-   COSAS QUE ESTÁN ROMPIENDO TU DISEÑO ACTUAL
+   RESPONSIVE
    ============================================================ */
 
-.experiencia [class*="fantasma"],
-.experiencia [class*="gigante"],
-.experiencia [class*="columna-vertical"],
-.experiencia [class*="bloque-negro"] {
-  display: none;
+@media (max-width: 1024px) {
+  .experiencia__item {
+    grid-template-columns: 160px 20px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .experiencia__stack {
+    grid-column: 3 / 4;
+    margin-top: 12px;
+  }
 }
 
-/* por si tus columnas de tecnologías tienen altura fija */
-.experiencia__tech,
-.experiencia__columna,
-.experiencia__skill,
-.experiencia__skills-columna {
-  height: auto !important;
-  min-height: 0 !important;
-}
-
-/* ============================================================
-   TABLET
-   ============================================================ */
-
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .experiencia__contenido {
     padding: 32px 20px 40px 20px;
   }
 
-  .experiencia__topbar {
-    padding: 12px 20px;
-    font-size: 9.5px;
-  }
-
-  .experiencia__encabezado {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .experiencia__grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .experiencia__footer {
-    padding: 12px 20px;
-  }
-}
-
-/* ============================================================
-   MÓVIL
-   ============================================================ */
-
-@media (max-width: 480px) {
-  .experiencia__topbar {
-    padding: 10px 16px;
-  }
-
-  .experiencia__contenido {
-    padding: 24px 16px 32px 16px;
-    gap: 22px;
-  }
-
   .experiencia__titulo {
-    font-size: clamp(44px, 16vw, 78px);
+    font-size: clamp(56px, 14vw, 110px);
   }
 
   .experiencia__item {
-    grid-template-columns: 36px 1fr;
-    gap: 10px;
-    padding: 16px 0;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 24px 0;
   }
 
-  .experiencia__texto {
-    font-size: 13px;
-    line-height: 1.65;
+  .experiencia__fecha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 0;
   }
 
-  .experiencia__tag {
-    padding: 8px 10px;
-    font-size: 9px;
-  }
-
-  .experiencia__ticker {
+  .experiencia__linea {
     display: none;
   }
 
-  .experiencia__footer {
-    padding: 12px 16px;
-    font-size: 9.5px;
+  .experiencia__empresa {
+    font-size: clamp(28px, 7vw, 42px);
+  }
+
+  .experiencia__stack {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experiencia__contenido {
+    padding: 24px 16px 32px 16px;
+  }
+
+  .experiencia__titulo {
+    font-size: clamp(46px, 16vw, 82px);
+    letter-spacing: -1px;
+  }
+
+  .experiencia__subtitulo {
+    font-size: 10px;
+  }
+
+  .experiencia__lista li {
+    font-size: 13px;
+    line-height: 1.65;
+    padding: 10px 0 10px 24px;
+  }
+
+  .experiencia__lista li::before {
+    width: 8px;
+    height: 8px;
+    top: 18px;
+  }
+
+  .experiencia__tag {
+    font-size: 9px;
+    padding: 7px 10px;
   }
 }
