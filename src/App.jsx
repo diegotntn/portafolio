@@ -10,7 +10,7 @@ function App() {
     <>
       <Hero />
       <Proyectos />
-      <Experiencia />
+      <Experiencia laboral/>
       <SobreMi />
       <Contacto />
     </>

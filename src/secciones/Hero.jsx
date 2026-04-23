@@ -40,6 +40,7 @@ function Hero() {
         </div>
         <nav className="hero__botones">
           <a href="#proyectos" className="hero__boton">Proyectos</a>
+          <a href="#experiencia" className="hero__boton">Experiencia</a>
           <a href="#sobre-mi" className="hero__boton">Sobre mí</a>
           <a href="#contacto" className="hero__boton">Contacto</a>
         </nav>
