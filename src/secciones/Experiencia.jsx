@@ -7,7 +7,7 @@ const l_experiencia = [
     empresa: "PlusMedic y Farmacias YaVaz",
     cargo: "Auxiliar de Sistemas",
     fechaInicio: "Sep. 2025",
-    fechaFin: null, // null = actualidad
+    fechaFin: null,
     tareas: [
       "Integración y consumo de APIs en entorno handheld (Handy) utilizando Python.",
       "Gestión y consultas en tablas SQL para extracción, transformación y carga de datos.",
@@ -21,6 +21,11 @@ const l_experiencia = [
 function Experiencia() {
   return (
     <section className="experiencia" id="experiencia">
+      <div className="experiencia__header">
+        <div className="experiencia__seccion-label">Experiencia</div>
+        <div className="experiencia__seccion-num">03 / 04</div>
+      </div>
+
       <div className="experiencia__num-fantasma">3</div>
 
       <div className="experiencia__bloque-negro">
@@ -42,26 +47,27 @@ function Experiencia() {
 
         <div className="timeline">
           {l_experiencia.map((trabajo) => (
-            <div key={trabajo.id} className="timeline__entrada">
+            <article key={trabajo.id} className="timeline__entrada">
+              <div
+                className={`timeline__punto${
+                  !trabajo.fechaFin ? " timeline__punto--activo" : ""
+                }`}
+              />
 
-              {/* punto en la línea */}
-              <div className={`timeline__punto${!trabajo.fechaFin ? " timeline__punto--activo" : ""}`} />
-
-              {/* fecha */}
               <div className="timeline__fecha">
-                {trabajo.fechaInicio} — {trabajo.fechaFin ?? "Actualidad"}
+                <span>
+                  {trabajo.fechaInicio} — {trabajo.fechaFin ?? "Actualidad"}
+                </span>
+
                 {!trabajo.fechaFin && (
                   <span className="timeline__fecha-badge">En curso</span>
                 )}
               </div>
 
-              {/* empresa */}
               <h3 className="timeline__empresa">{trabajo.empresa}</h3>
 
-              {/* cargo */}
               <p className="timeline__cargo">{trabajo.cargo}</p>
 
-              {/* tareas */}
               <ul className="timeline__tareas">
                 {trabajo.tareas.map((tarea, i) => (
                   <li key={i} className="timeline__tarea">
@@ -73,16 +79,16 @@ function Experiencia() {
                 ))}
               </ul>
 
-              {/* stack */}
-              {trabajo.stack && (
+              {trabajo.stack && trabajo.stack.length > 0 && (
                 <div className="timeline__stack">
                   {trabajo.stack.map((tag, i) => (
-                    <span key={i} className="timeline__tag">{tag}</span>
+                    <span key={i} className="timeline__tag">
+                      {tag}
+                    </span>
                   ))}
                 </div>
               )}
-
-            </div>
+            </article>
           ))}
         </div>
       </div>
