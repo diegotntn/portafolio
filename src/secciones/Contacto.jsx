@@ -67,6 +67,17 @@ function Contacto() {
               <img src={correoIcono} alt="Correo electrónico" />
             </a>
 
+            {/* WhatsApp / Teléfono */}
+            <a
+              href="https://wa.me/522411669854"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contacto__icono"
+              aria-label="WhatsApp"
+            >
+              📱
+            </a>
+
             {/* LinkedIn con tooltip */}
             <div className="contacto__icono-wrapper">
               <a
@@ -83,6 +94,12 @@ function Contacto() {
             </div>
 
           </div>
+
+          {/* Número visible */}
+          <p className="contacto__telefono">
+            +52 241 166 9854
+          </p>
+
         </div>
       </div>
 
