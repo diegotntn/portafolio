@@ -19,7 +19,7 @@ function Proyectos() {
       {/* Barra superior */}
       <div className="proyectos__header">
         <span className="proyectos__seccion-label">Proyectos</span>
-        <span className="proyectos__seccion-num">02 / 04</span>
+        <span className="proyectos__seccion-num">01 / 04</span>
       </div>
 
       <div className="proyectos__contenido">

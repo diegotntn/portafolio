@@ -7,12 +7,14 @@ const l_experiencia = [
     empresa: "PlusMedic y Farmacias YaVaz",
     cargo: "Auxiliar de Sistemas",
     fechaInicio: "Sep. 2025",
-    fechaFin: null,
+    fechaFin: "May. 2026",
     tareas: [
       "Integración y consumo de APIs en entorno handheld (Handy) utilizando Python.",
       "Gestión y consultas en tablas SQL para extracción, transformación y carga de datos.",
       "Generación de reportes ejecutables en Excel: tablas dinámicas, fórmulas avanzadas y automatización con Python.",
       "Desarrollo de dashboards interactivos en JavaScript para visualización de indicadores clave.",
+      "Desarrollo de ejecutables para transferencia y sincronización de datos entre Microsip y Handy.",
+      "Automatización del envío de correos mediante scripts ejecutables con Python.",
     ],
     stack: ["Python", "SQL", "Excel", "JavaScript", "APIs REST"],
   },
@@ -23,7 +25,7 @@ function Experiencia() {
     <section className="experiencia" id="experiencia">
       <div className="experiencia__header">
         <div className="experiencia__seccion-label">Experiencia</div>
-        <div className="experiencia__seccion-num">03 / 04</div>
+        <div className="experiencia__seccion-num">02 / 04</div>
       </div>
 
       <div className="experiencia__num-fantasma">3</div>

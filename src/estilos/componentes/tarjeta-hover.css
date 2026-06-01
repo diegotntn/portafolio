@@ -41,7 +41,8 @@
   transition: opacity 0.22s ease, visibility 0.22s ease;
 }
 
-.tarjeta-hover:hover .tarjeta-hover__contenido {
+.tarjeta-hover:hover .tarjeta-hover__contenido,
+.tarjeta-hover--abierta .tarjeta-hover__contenido {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -143,29 +144,63 @@
    ============================================================ */
 
 @media (max-width: 900px) {
+  /* En móvil/tablet el contenido se expande inline (acordeón), no flota */
+  .tarjeta-hover {
+    display: block;
+    width: 100%;
+  }
+
+  .tarjeta-hover__boton {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Indicador de estado abierto/cerrado */
+  .tarjeta-hover__boton::after {
+    content: '+';
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.22s ease;
+  }
+
+  .tarjeta-hover--abierta .tarjeta-hover__boton::after {
+    transform: rotate(45deg);
+  }
+
+  /* El contenido deja de ser absoluto y flotante */
   .tarjeta-hover--derecha .tarjeta-hover__contenido,
   .tarjeta-hover--arriba .tarjeta-hover__contenido {
-    top: calc(100% + 12px);
-    left: 50%;
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
     bottom: auto;
-    transform: translateX(-50%);
+    /* Animación de apertura */
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.28s ease, opacity 0.22s ease, visibility 0.22s ease;
+  }
+
+  .tarjeta-hover--abierta .tarjeta-hover__contenido {
+    grid-template-rows: 1fr;
   }
 
   .tarjeta-hover__tarjeta {
-    width: 250px;
+    overflow: hidden;
+    width: 100%;
+    border-top: none; /* El botón ya tiene borde inferior */
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 600px) {
   .tarjeta-hover__boton {
-    min-width: 110px;
-    padding: 12px 16px;
     font-size: 10.5px;
-  }
-
-  .tarjeta-hover__tarjeta {
-    width: 220px;
-    padding: 18px;
+    padding: 12px 16px;
   }
 
   .tarjeta-hover__titulo {

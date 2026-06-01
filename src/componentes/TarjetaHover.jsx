@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../estilos/componentes/tarjeta-hover.css";
 
 function TarjetaHover({
@@ -8,29 +8,55 @@ function TarjetaHover({
   l_elementos = [],
   direccion = "derecha"
 }) {
+  const [abierta, setAbierta] = useState(false);
+  const ref = useRef(null);
   const b_es_formacion = tituloTarjeta === "formación académica";
 
-  const renderElemento = (texto, index) => {
-    const partes = texto.split(":");
+  // Cerrar al hacer click fuera
+  useEffect(() => {
+    const handleClickFuera = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setAbierta(false);
+      }
+    };
+    if (abierta) {
+      document.addEventListener("mousedown", handleClickFuera);
+      document.addEventListener("touchstart", handleClickFuera);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickFuera);
+      document.removeEventListener("touchstart", handleClickFuera);
+    };
+  }, [abierta]);
 
-    if (partes.length > 1) {
+  const renderElemento = (elemento, index) => {
+    // Nuevo formato: { etiqueta, valor }
+    if (elemento && typeof elemento === "object" && "etiqueta" in elemento) {
       return (
         <li key={index} className="tarjeta-hover__item">
-          <strong>{partes[0]}:</strong> {partes.slice(1).join(":")}
+          <strong>{elemento.etiqueta}:</strong> {elemento.valor}
         </li>
       );
     }
-
+    // Formato legacy: string plano
     return (
       <li key={index} className="tarjeta-hover__item">
-        {texto}
+        {elemento}
       </li>
     );
   };
 
   return (
-    <div className={`tarjeta-hover tarjeta-hover--${direccion}`}>
-      <button className="tarjeta-hover__boton" type="button">
+    <div
+      ref={ref}
+      className={`tarjeta-hover tarjeta-hover--${direccion}${abierta ? " tarjeta-hover--abierta" : ""}`}
+    >
+      <button
+        className="tarjeta-hover__boton"
+        type="button"
+        onClick={() => setAbierta((prev) => !prev)}
+        aria-expanded={abierta}
+      >
         {tituloBoton}
       </button>
 
@@ -45,7 +71,6 @@ function TarjetaHover({
                   {descripcion}
                 </p>
               )}
-
               {l_elementos.length > 0 && (
                 <div className="tarjeta-hover__formacion-datos">
                   {l_elementos.map((elemento, index) => (
@@ -61,7 +86,6 @@ function TarjetaHover({
               {descripcion && (
                 <p className="tarjeta-hover__descripcion">{descripcion}</p>
               )}
-
               {l_elementos.length > 0 && (
                 <ul className="tarjeta-hover__lista">
                   {l_elementos.map(renderElemento)}
